@@ -1,11 +1,9 @@
 import cv2
 
-# Load face detector
 face_cap = cv2.CascadeClassifier(
     cv2.data.haarcascades + "haarcascade_frontalface_default.xml"
 )
 
-# Open camera
 video_cap = cv2.VideoCapture(0)
 
 while True:
@@ -14,7 +12,6 @@ while True:
 
     col = cv2.cvtColor(video_data, cv2.COLOR_BGR2GRAY)
 
-    # match faces
     faces = face_cap.detectMultiScale(
         col,
         scaleFactor=1.1,
@@ -22,14 +19,11 @@ while True:
         minSize=(30, 30)
     )
 
-    # Draw rectangle around face
     for (x, y, w, h) in faces:
         cv2.rectangle(video_data, (x, y), (x+w, y+h), (0,255,0), 2)
 
-    # Show in amera
     cv2.imshow("Face Detection", video_data)
 
-    # Press 'a' to exit
     if cv2.waitKey(10) == ord("e"):
         break
 

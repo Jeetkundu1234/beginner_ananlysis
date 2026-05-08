@@ -2,24 +2,19 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
 data = {
     "Country": ["India", "USA", "Brazil", "Russia", "Japan"],
     "Cases": [45000000, 103000000, 37000000, 22000000, 33000000],
     "Deaths": [530000, 1120000, 700000, 390000, 74000]
 }
 
-
 df = pd.DataFrame(data)
 
-
 df.index = range(1, len(df) + 1)
-
 
 print("\n========== COVID-19 DATA ANALYSIS ==========\n")
 
 print(df)
-
 
 total_cases = df["Cases"].sum()
 total_deaths = df["Deaths"].sum()
