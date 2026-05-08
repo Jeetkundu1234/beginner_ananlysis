@@ -4,7 +4,6 @@ import matplotlib.pyplot as plt
 
 st.title("📊 Sales Data Analysis Dashboard")
 
-# ================= SAMPLE DATA =================
 
 data = {
     "Product": ["Rice", "Wheat", "Sugar", "Rice", "Sugar", "Oil", "Wheat"],
@@ -17,32 +16,27 @@ df = pd.DataFrame(data)
 
 df["Total"] = df["Quantity"] * df["Price"]
 
-# ================= SHOW DATA =================
 
 st.subheader("📦 Sales Data")
 st.dataframe(df)
 
-# ================= TOTAL SALES =================
 
 total_sales = df["Total"].sum()
 st.subheader("💰 Total Sales")
 st.success(total_sales)
 
-# ================= BEST PRODUCT =================
 
 best_product = df.groupby("Product")["Quantity"].sum()
 
 st.subheader("🏆 Best Selling Products")
 st.bar_chart(best_product)
 
-# ================= MONTHLY SALES =================
 
 monthly_sales = df.groupby("Month")["Total"].sum()
 
 st.subheader("📅 Monthly Revenue")
 st.bar_chart(monthly_sales)
 
-# ================= PIE CHART =================
 
 st.subheader("📊 Product Share")
 
